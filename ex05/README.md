@@ -366,3 +366,14 @@ public class TestEarn {
     }
 }
 ```
+
+运行效果如下
+
+```
+Boss  Earns:100.0
+CommissionWorker  Earns:300.0
+PieceWorker  Earns:5000.0
+HourlyWorker  Earns:2480.0
+
+Process finished with exit code 0
+```
