@@ -19,6 +19,8 @@ public class Dot {
     }
 
     /**
+     * 检测是否有点重复，不定参数。
+     * 若有点重复则返回true，若无点重复则返回false
      *
      * @param dots
      * @return
@@ -27,12 +29,29 @@ public class Dot {
         for (int i = 0; i < dots.length; i++) {
             for (int j = i + 1; j < dots.length; j++) {
                 if (CalDistance(dots[i], dots[j]) <= 1E-10)
-                    return false;
+                    return true;
             }
-//            if (CalDistance(dots[i], dots[i + 1]) - 0 <= 1E-10)
-//                return false;
         }
-        return true;
+        return false;
+    }
+
+    /**
+     * 检测由AB和BC构成的直线是否垂直
+     * 若垂直返回true，不垂直返回false
+     * @param dotA
+     * @param dotC
+     * @param dotB
+     * @return
+     */
+    public static boolean IfVertical(Dot dotA,Dot dotB, Dot dotC) {
+        if (CalSlope(dotA, dotB) == "notExist" || CalSlope(dotB, dotC) == "notExist") {
+            if ((CalSlope(dotA, dotB) == "notExist" && Double.valueOf(CalSlope(dotB, dotC)) <= 1E-10) || (CalSlope(dotB, dotC) == "notExist" && Double.valueOf(CalSlope(dotA, dotB)) <= 1E-10)) {
+                return true; //两线其中一线斜率不存在，特殊处理
+            }
+        } else if (Double.valueOf(CalSlope(dotA, dotB)) * Double.valueOf(CalSlope(dotB, dotC)) + 1 <= 1E-10) {
+            return true;
+        }
+        return false;
     }
 
     public double CalDistance(Dot dot) {
@@ -45,15 +64,25 @@ public class Dot {
 
     public String CalSlope(Dot dot) {
         if (Math.abs(dot.x - this.x) - 0 <= 1E-10) {
-            if (CalDistance(dot) - 0 <= 1E-10) {
+            if (CalDistance(dot) <= 1E-10) {
                 throw new RuntimeException("点重复");
             } else {
                 return "notExist"; //斜率不存在
             }
         }
-        return Double.toString(Math.abs(dot.y - y) / Math.abs(dot.x - x));
+        return Double.toString((dot.y - y) / (dot.x - x));
     }
 
+    public static String CalSlope(Dot dotA, Dot dotB) {
+        if (Math.abs(dotA.x - dotB.y) <= 1E-10) {
+            if (CalDistance(dotA, dotB) <= 1E-10) {
+                throw new RuntimeException("点重复");
+            } else {
+                return "notExist"; //斜率不存在
+            }
+        }
+        return Double.toString((dotA.y - dotB.y) / (dotA.x - dotB.x));
+    }
 
 //    public double CalSlope(Dot dot) {
 //        if (CalDistance(dot) <= 1E-10) {
