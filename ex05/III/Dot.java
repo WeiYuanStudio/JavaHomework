@@ -74,7 +74,7 @@ public class Dot {
     }
 
     public static String CalSlope(Dot dotA, Dot dotB) {
-        if (Math.abs(dotA.x - dotB.y) <= 1E-10) {
+        if (Math.abs(dotA.x - dotB.x) <= 1E-10) {
             if (CalDistance(dotA, dotB) <= 1E-10) {
                 throw new RuntimeException("点重复");
             } else {
