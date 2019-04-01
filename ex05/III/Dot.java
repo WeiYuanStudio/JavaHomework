@@ -38,12 +38,13 @@ public class Dot {
     /**
      * 检测由AB和BC构成的直线是否垂直
      * 若垂直返回true，不垂直返回false
+     *
      * @param dotA
      * @param dotC
      * @param dotB
      * @return
      */
-    public static boolean IfVertical(Dot dotA,Dot dotB, Dot dotC) {
+    public static boolean IfVertical(Dot dotA, Dot dotB, Dot dotC) {
         if (CalSlope(dotA, dotB) == "notExist" || CalSlope(dotB, dotC) == "notExist") {
             if ((CalSlope(dotA, dotB) == "notExist" && Double.valueOf(CalSlope(dotB, dotC)) <= 1E-10) || (CalSlope(dotB, dotC) == "notExist" && Double.valueOf(CalSlope(dotA, dotB)) <= 1E-10)) {
                 return true; //两线其中一线斜率不存在，特殊处理
@@ -83,24 +84,4 @@ public class Dot {
         }
         return Double.toString((dotA.y - dotB.y) / (dotA.x - dotB.x));
     }
-
-//    public double CalSlope(Dot dot) {
-//        if (CalDistance(dot) <= 1E-10) {
-//            throw new RuntimeException("点重复");
-//        } else {
-//            return (Math.abs(dot.y - y) / Math.abs(dot.x - x));
-//        }
-//    } //该点到dot所成直线斜率
-//
-//    public static double CalSlope(Dot dotA, Dot dotB) {
-//        if (Math.abs(dotA.x - dotB.x) - 0 <= 1E-10) {
-//            if (CalDistance(dotA, dotB) - 0 <= 1E-10) {
-//                throw new RuntimeException("点重复");
-//            } else {
-//                throw new RuntimeException("斜率不存在");
-//            }
-//        }
-//        return (Math.abs(dotA.y - dotB.y) / Math.abs(dotA.x - dotB.x));
-//        // 两点dotA dotB所成直线的斜率
-//    }
 }

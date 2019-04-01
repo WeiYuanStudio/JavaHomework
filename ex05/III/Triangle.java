@@ -18,10 +18,11 @@ public class Triangle extends Shape {
     private double lengthA, lengthB, lengthC;
 
     public Triangle(Dot A, Dot B, Dot C) {
-        if (A.CalDistance(B) == 0 || B.CalDistance(C) == 0 || C.CalDistance(A) == 0) {
+        CalLength();
+        if (Dot.IfRepeat(A, B, C)) {
             throw new RuntimeException("创建三角形失败，点重复");
-        } else if (false) {
-            //判断三点一线
+        } else if (lengthA + lengthB <= lengthC || lengthB + lengthC <= lengthA || lengthC + lengthA <= lengthB) {
+            throw new RuntimeException("不符合三角形定义");
         } else {
             this.A = A;
             this.B = B;
@@ -32,10 +33,6 @@ public class Triangle extends Shape {
         }
     } //构造方法,构造时计算Perimeter，Aria
 
-//    public static boolean ifTriangle(Dot A, Dot B, Dot C) {
-//        return true;
-//    }//判断符合三角形的定义，待完善
-
     private void CalLength() {
         lengthA = B.CalDistance(C);
         lengthB = C.CalDistance(A);
@@ -44,9 +41,8 @@ public class Triangle extends Shape {
 
     @Override
     public double CalPerimeter() {
-        CalLength();
         return perimeter = lengthA + lengthB + lengthC;
-    } //依赖CalLength,计算perimeter
+    } //计算perimeter
 
     /**
      * 计算三角形面积

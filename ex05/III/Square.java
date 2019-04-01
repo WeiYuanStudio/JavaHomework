@@ -9,14 +9,14 @@ public class Square extends Shape {
      * 判断是否两线成垂直
      * B点需是正方形边AB，BC的交点
      *
-     * @param A
-     * @param B
-     * @param C
+     * @author WeiYuan
+     * @version 0.1
+     * @since JDK 11.0.2
      */
     public Square(Dot A, Dot B, Dot C, Dot D) {
         if (Dot.IfRepeat(A, B, C, D)) { //判断是否有点重复
             throw new RuntimeException("点重复");
-        } else if ((Dot.CalDistance(A, C) != Dot.CalDistance(B, D)) || !Dot.IfVertical(A, B, C) || !Dot.IfVertical(B, C, D) || !Dot.IfVertical(C, D, A)) {
+        } else if ((Dot.CalDistance(A, B) != Dot.CalDistance(B, C)) || !Dot.IfVertical(A, B, C) || !Dot.IfVertical(B, C, D) || !Dot.IfVertical(C, D, A)) {
             //上方语句判断是否符合正方形的定义，先判断一下是否对角线相等，如果相等
             throw new RuntimeException("点座标不符合正方形的定义");
         } else {
