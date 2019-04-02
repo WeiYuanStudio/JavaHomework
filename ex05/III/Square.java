@@ -4,6 +4,7 @@ public class Square extends Shape {
     Dot A, B, C, D;
 
     /**
+     * 正方形
      * 判断是否有点重复
      * 判断是否两线长度一致
      * 判断是否两线成垂直
@@ -14,28 +15,32 @@ public class Square extends Shape {
      * @since JDK 11.0.2
      */
     public Square(Dot A, Dot B, Dot C, Dot D) {
+        this.A = A;
+        this.B = B;
+        this.C = C;
+        this.D = D;
         if (Dot.IfRepeat(A, B, C, D)) { //判断是否有点重复
             throw new RuntimeException("点重复");
-        } else if ((Dot.CalDistance(A, B) != Dot.CalDistance(B, C)) || !Dot.IfVertical(A, B, C) || !Dot.IfVertical(B, C, D) || !Dot.IfVertical(C, D, A)) {
-            //上方语句判断是否符合正方形的定义，先判断一下是否对角线相等，如果相等
+        } else if ( //判断AB和BC边是否相等
+                !((Dot.CalDistance(A,B) - Dot.CalDistance(B,C)) <= Dot.deviation) ||
+                //判断三角是否垂直，根据四边形定义，三角垂直则第四角也垂直
+                !Dot.IfVertical(A, B, C) ||
+                !Dot.IfVertical(B, C, D) ||
+                !Dot.IfVertical(C, D, A)){
             throw new RuntimeException("点座标不符合正方形的定义");
         } else {
-            this.A = A;
-            this.B = B;
-            this.C = C;
-            this.D = D;
-            CalPerimeter();
-            CalAria();
+            Perimeter();
+            Aria();
         }
     }
 
     @Override
-    public double CalPerimeter() {
+    public double Perimeter() {
         return perimeter = Dot.CalDistance(A, B) * 4;
     }
 
     @Override
-    public double CalAria() {
+    public double Aria() {
         return aria = Dot.CalDistance(A, B) * Dot.CalDistance(B, C);
     }
 }

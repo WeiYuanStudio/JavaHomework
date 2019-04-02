@@ -18,18 +18,19 @@ public class Triangle extends Shape {
     private double lengthA, lengthB, lengthC;
 
     public Triangle(Dot A, Dot B, Dot C) {
+        this.A = A;
+        this.B = B;
+        this.C = C;
         CalLength();
         if (Dot.IfRepeat(A, B, C)) {
             throw new RuntimeException("创建三角形失败，点重复");
-        } else if (lengthA + lengthB <= lengthC || lengthB + lengthC <= lengthA || lengthC + lengthA <= lengthB) {
+        } else if ( lengthA + lengthB <= lengthC + Dot.deviation ||
+                    lengthB + lengthC <= lengthA + Dot.deviation ||
+                    lengthC + lengthA <= lengthB + Dot.deviation) {
             throw new RuntimeException("不符合三角形定义");
         } else {
-            this.A = A;
-            this.B = B;
-            this.C = C;
-
-            CalPerimeter();
-            CalAria();
+            Perimeter();
+            Aria();
         }
     } //构造方法,构造时计算Perimeter，Aria
 
@@ -40,7 +41,7 @@ public class Triangle extends Shape {
     } //构造时调用该方法计算各边边长
 
     @Override
-    public double CalPerimeter() {
+    public double Perimeter() {
         return perimeter = lengthA + lengthB + lengthC;
     } //计算perimeter
 
@@ -52,7 +53,7 @@ public class Triangle extends Shape {
      * @return aria
      */
     @Override
-    public double CalAria() {
+    public double Aria() {
         CalLength();
         double S = (lengthA + lengthB + lengthC) / 2; //半周长
         return aria = Math.sqrt(S * (S - lengthA) * (S - lengthB) * (S - lengthC));

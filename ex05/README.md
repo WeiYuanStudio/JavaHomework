@@ -1,6 +1,7 @@
 # 实验五实验报告
 
-**因为Code Review，当前实验报告已不是最新代码，请在上方查看最新代码和CodeReview报告(REVIEW.md)**
+**已进行Code Review，当前实验报告已不是最新代码，请在上方查看最新代码和CodeReview报告(REVIEW.md)**  
+**第III旧代码存在严重问题，请直接查看上方III文件中的.java文件**
 
 ## I. 测试接口的用法
 
