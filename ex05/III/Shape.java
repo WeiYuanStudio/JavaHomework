@@ -12,16 +12,15 @@ package ex05.III;
 public abstract class Shape {
     double perimeter, aria; //周长和面积
 
-    public abstract double CalPerimeter();
+    public abstract double Perimeter();
 
-    public abstract double CalAria();
+    public abstract double Aria();
 
-    public void PrintPerimeter(){
+    void PrintPerimeter(){
         System.out.println(this.getClass().getSimpleName() + " Perimeter is " + perimeter);
     }
 
-    public void PrintAria(){
+    void PrintAria(){
         System.out.println(this.getClass().getSimpleName() + " Aria is " + aria);
     }
-    //权限待改进
 }
