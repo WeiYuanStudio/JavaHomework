@@ -1,5 +1,7 @@
 # 实验五实验报告
 
+**因为Code Review，当前实验报告已不是最新代码，请在上方查看最新代码和CodeReview报告(REVIEW.md)**
+
 ## I. 测试接口的用法
 
 创建一个Vehicle接口，在接口中定义2个抽象方法：启动start()和刹车stop()。

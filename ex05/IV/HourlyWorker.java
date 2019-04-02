@@ -9,11 +9,32 @@ package ex05.IV;
  * @since JDK 11.0.2
  */
 public final class HourlyWorker extends Employee {
-    private int work_hours = 248; //工作时长
-    private double hourly_wage = 10; //时薪
+    private int workHours; //工作时长
+    private double hourlyWage; //时薪
+
+    public HourlyWorker(int workHours, double hourlyWage) {
+        this.workHours = workHours;
+        this.hourlyWage = hourlyWage;
+    }
 
     @Override
     double Earnings() {
-        return work_hours * hourly_wage;
+        return workHours * hourlyWage;
+    }
+
+    public int getWorkHours() {
+        return workHours;
+    }
+
+    public void setWorkHours(int workHours) {
+        this.workHours = workHours;
+    }
+
+    public double getHourlyWage() {
+        return hourlyWage;
+    }
+
+    public void setHourlyWage(double hourlyWage) {
+        this.hourlyWage = hourlyWage;
     }
 }

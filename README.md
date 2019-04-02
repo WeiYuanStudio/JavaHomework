@@ -2,13 +2,22 @@
 
 ## 实验进度
 
-|Project  | Status
-|---------|-------
-|ex01     |完成
-|ex02     |完成
-|ex03     |完成
-|ex04     |完成
-|ex05     |撰写中
+|Project | Status |Code Review Status             | 
+|--------|--------|-------------------------------|
+|ex01    |Finish  |                               |
+|ex02    |Finish  |                               |
+|ex03    |Finish  |                               |
+|ex04    |Finish  |                               |
+|ex05    |Finish  |First Review Finished          |
+|ex06    |Writing |                               |
+
+# Timeline
+
+Mon Apr  1 20:27:49 EDT 2019
+----
+历史遗留问题已经解决，试行增加Code Review计划。
+~~说人话，就是回顾修正旧实验做的不好的地方~~
+若非严重错误Review将不会修改实验报告，大概会写个Review报告吧。欢迎各位大佬使用GitHub互相Review代码。
 
 2019年 3月23日 星期六 13时35分15秒 CST
 ---

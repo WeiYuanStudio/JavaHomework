@@ -9,7 +9,12 @@ public class Test_Vehicle {
     public static void main(String[] args) {
         Car audi;
         Bike yongjiu;
-        Vehicle v[] = {audi = new Car(), yongjiu = new Bike()};
+
+        Vehicle v[] = {
+                audi = new Car(),
+                yongjiu = new Bike()
+        };
+
         for (Vehicle i : v) {
             i.start();
             i.stop();

@@ -9,11 +9,32 @@ package ex05.IV;
  * @since JDK 11.0.2
  */
 public final class PieceWorker extends Employee {
-    private double single_piece_wages = 5; //单件工资
-    private int production_quantity = 1000; //生产数量
+    private double singlePieceWages; //单件工资
+    private int productionQuantity; //生产数量
+
+    public PieceWorker(double singlePieceWages, int productionQuantity) {
+        this.singlePieceWages = singlePieceWages;
+        this.productionQuantity = productionQuantity;
+    }
 
     @Override
     double Earnings() {
-        return single_piece_wages * production_quantity;
+        return singlePieceWages * productionQuantity;
+    }
+
+    public double getSinglePieceWages() {
+        return singlePieceWages;
+    }
+
+    public void setSinglePieceWages(double singlePieceWages) {
+        this.singlePieceWages = singlePieceWages;
+    }
+
+    public int getProductionQuantity() {
+        return productionQuantity;
+    }
+
+    public void setProductionQuantity(int productionQuantity) {
+        this.productionQuantity = productionQuantity;
     }
 }
