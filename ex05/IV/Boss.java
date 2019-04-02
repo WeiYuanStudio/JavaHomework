@@ -9,10 +9,22 @@ package ex05.IV;
  * @since JDK 11.0.2
  */
 public final class Boss extends Employee {
-    private double fixed_salary = 100; //固定工资
+    private double fixedSalary; //固定工资
+
+    public Boss(double fixedSalary) {
+        this.fixedSalary = fixedSalary;
+    }
 
     @Override
     double Earnings() {
-        return fixed_salary;
+        return fixedSalary;
+    }
+
+    public double getFixedSalary() {
+        return fixedSalary;
+    }
+
+    public void setFixedSalary(double fixedSalary) {
+        this.fixedSalary = fixedSalary;
     }
 }
