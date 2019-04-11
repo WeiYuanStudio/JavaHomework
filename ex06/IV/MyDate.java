@@ -65,10 +65,24 @@ public class MyDate {
         throw new IllegalArgumentException("错误的月期参数");
     }
 
+    int DayOfMonth() {
+        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+            return 31; //公历:一三五七八十腊，三十一天永不差
+        else if (month == 2) { //二月特殊处理，闰年返回29，平年返回28
+            if (IfLeapYear(year)) {
+                return 29;
+            }
+            return 28;
+        } else if (month == 4 || month == 6 || month == 9 || month == 11) //剩下的月份4，6，9，11都是一个月有30天
+            return 30;
+        throw new IllegalArgumentException("错误的月期参数");
+    }
+
     /**
      * 计算星期几，参数为年月日
      */
     static int CalWeek(int year, int month, int day) {
+        if (!IfDateLegal(year, month, day)) throw new IllegalArgumentException("输入的日期不合法"); //检测年月日三个信息是否合法
         if (year == setYear && month == setMonth && day == setDay) //如果传入参数是上面设置的起始计算日信息，则直接返回已经设置好星期信息
             return setWeek;
         else { //如果传入参数不是上面设置的起始计算日信息，则调用Yesterday方法生成一个包含昨天信息的MyDate对象，向其获取昨天的星期信息
@@ -77,8 +91,18 @@ public class MyDate {
         }
     }
 
-    /*是上面方法的MyDate参数重载 */
+    int CalWeek() {
+        if (!IfDateLegal(year, month, day)) throw new IllegalArgumentException("输入的日期不合法"); //检测年月日三个信息是否合法
+        if (year == setYear && month == setMonth && day == setDay) //如果传入参数是上面设置的起始计算日信息，则直接返回已经设置好星期信息
+            return setWeek;
+        else { //如果传入参数不是上面设置的起始计算日信息，则调用Yesterday方法生成一个包含昨天信息的MyDate对象，向其获取昨天的星期信息
+            int yesterdayWeek = Yesterday(year, month, day).getWeek();
+            return (yesterdayWeek < 7 ? yesterdayWeek + 1 : 1); //通过昨天的星期信息即可推算出今天是星期几
+        }
+    }
+
     static int CalWeek(MyDate today) {
+        if (!IfDateLegal(today.year, today.month, today.day)) throw new IllegalArgumentException("输入的日期不合法"); //检测年月日三个信息是否合法
         if (today.year == setYear && today.month == setMonth && today.day == setDay) {//如果传入参数是上面设置的起始计算日信息，则直接返回已经设置好星期信息
             return setWeek;
         } else { //如果传入参数不是上面设置的起始计算日信息，则调用Yesterday方法生成一个包含昨天信息的MyDate对象，向其获取昨天的星期信息
@@ -92,6 +116,7 @@ public class MyDate {
      * 返回一个包含昨天日期信息的MyDate对象
      */
     static MyDate Yesterday(MyDate today) {
+        if (!IfDateLegal(today.year, today.month, today.day)) throw new IllegalArgumentException("输入的日期不合法"); //检测年月日三个信息是否合法
         if (today.day > 1) //如果当天日期日不为1，那么昨天的日期信息，只需要在日上减1
             return new MyDate(today.year, today.month, today.day - 1);
         else if (today.month > 1) { //如果当日的日为1，而月份不为一，那么昨天的日期信息，月为当月减1，日为这个月最后一天
@@ -101,8 +126,19 @@ public class MyDate {
         }
     }
 
-    /*是上面方法的MyDate参数重载*/
     static MyDate Yesterday(int year, int month, int day) {
+        if (!IfDateLegal(year, month, day)) throw new IllegalArgumentException("输入的日期不合法"); //检测年月日三个信息是否合法
+        if (day > 1) //如果当天日期日不为1，那么昨天的日期信息，只需要在日上减1
+            return new MyDate(year, month, day - 1);
+        else if (month > 1) {//如果当日的日为1，而月份不为一，那么昨天的日期信息，月为当月减1，日为这个月最后一天
+            return new MyDate(year, month - 1, DayOfMonth(year, month - 1));
+        } else {//如果当日的日为1，月份也为1，那么昨天的年份减1，月为12，日为31
+            return new MyDate(year - 1, 12, 31);
+        }
+    }
+
+    MyDate Yesterday() {
+        if (!IfDateLegal(year, month, day)) throw new IllegalArgumentException("输入的日期不合法"); //检测年月日三个信息是否合法
         if (day > 1) //如果当天日期日不为1，那么昨天的日期信息，只需要在日上减1
             return new MyDate(year, month, day - 1);
         else if (month > 1) {//如果当日的日为1，而月份不为一，那么昨天的日期信息，月为当月减1，日为这个月最后一天
@@ -120,6 +156,12 @@ public class MyDate {
         if (month < 1 || 12 < month) return false; //月份不符合定义
         if (day < 1 || DayOfMonth(year, month) < day) return false; //日期不符合定义
         return true;
+    }
+
+    boolean equals(MyDate date) {
+        if(date.day == this.day && date.month == this.month && date.year == this.year)
+            return true;
+        return false;
     }
 
     public int getYear() {

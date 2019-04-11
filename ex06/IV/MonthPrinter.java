@@ -5,7 +5,7 @@ package ex06.IV;
  * @version 0.1
  * @since JDK 11.0.2
  */
-public class MonthPrinte {
+public class MonthPrinter {
     static String monthName[] = {
             "Jan", "Feb", "Mar", "Apr",
             "May", "Jun", "Jul", "Aug",
@@ -16,7 +16,7 @@ public class MonthPrinte {
         MyDate.IfDateLegal(year, month, 1);
         int lineBreakCount = 0;
         int startWeek = MyDate.CalWeek(year, month, 1);
-        System.out.println("         " + MonthPrinte.monthName[month - 1]);
+        System.out.println("         " + MonthPrinter.monthName[month - 1]);
         System.out.println("Mo Tu We Th Fr Sa Su");
         for (int i = 0; i < startWeek - 1; i++) {
             System.out.print("  " + " ");
