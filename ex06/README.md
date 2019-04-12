@@ -213,7 +213,7 @@ c  c  f  g  g  m  n  r  t  u
 Process finished with exit code 0
 ```
 
-##　IV.教材第四章课后习题４题
+## IV.教材第四章课后习题４题
 
 **MyDate.java**
 
