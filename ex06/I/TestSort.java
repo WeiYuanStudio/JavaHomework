@@ -1,5 +1,7 @@
 package ex06.I;
 
+import ex06.III.MyRandom;
+
 /**
  * @author WeiYuan
  * @version 0.1
@@ -10,7 +12,7 @@ public class TestSort {
         System.out.println("--------随机测试用例--------");
         int randomNum[] = new int[10];
         for (int i = 0; i < randomNum.length; i++) {
-            randomNum[i] = (int) (Math.random() * 100);
+            randomNum[i] = MyRandom.getRadomIntByRange(0, 100);
             System.out.print(randomNum[i] + "  ");
         }
 

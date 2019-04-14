@@ -1,5 +1,7 @@
 package ex06.II;
 
+import ex06.III.MyRandom;
+
 /**
  * @author WeiYuan
  * @version 0.1
@@ -13,7 +15,7 @@ class RandomNum {
      */
     static void fillRandomArray(int[] num) {
         for (int i = 0; i < num.length; i++) {
-            num[i] = (int) (Math.random() * 20 + 0.5);
+            num[i] = MyRandom.getRadomIntByRange(0, 20); //复用第三题内的范围随机数生成
         }
     }
 }
