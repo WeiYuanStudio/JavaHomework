@@ -4,12 +4,20 @@
 
 |Project | Status |Code Review Status             | 
 |--------|--------|-------------------------------|
-|ex01    |Finish  |                               |
-|ex02    |Finish  |                               |
-|ex03    |Finish  |                               |
-|ex04    |Finish  |                               |
-|ex05    |Finish  |First Review Finished          |
-|ex06    |Writing |                               |
+|ex01    |Finished|                               |
+|ex02    |Finished|                               |
+|ex03    |Finished|                               |
+|ex04    |Finished|                               |
+|ex05    |Finished|First Review Finished          |
+|ex06    |Finished|                               |
+|ex07    |Writing |                               |
+
+# Docs
+
+[Oracle Java SE 7 API Docs EN](https://docs.oracle.com/javase/7/docs/api/)
+
+[Oracle Java SE 12 API Docs EN](https://docs.oracle.com/en/java/javase/12/docs/api/index.html)
+
 
 # Timeline
 
