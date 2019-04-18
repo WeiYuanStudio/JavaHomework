@@ -8,23 +8,39 @@ package ex07.I;
 public class MyString {
     private String str;
 
-    MyString(String str) {
+    /**
+     * 构造方法
+     */
+    public MyString(String str) {
         this.str = str;
     }
 
-    int calChar(char ch) {
+    /**
+     * 计算字符串内含有char个数
+     */
+    public int calChar(char ch) {
         int cal = 0;
         for (int i = 0; i < str.length(); i++) {
-            if(ch == str.charAt(i))
+            if (ch == str.charAt(i))
                 cal++;
         }
         return cal;
+    }
+
+    /**
+     * 替换字符串
+     */
+    public void replace(String target, String replaceStr) {
+        str.replace(target, replaceStr);
     }
 
     public int length() {
         return str.length();
     }
 
+    /**
+     *重载toString
+     */
     public String toString() {
         return str;
     }

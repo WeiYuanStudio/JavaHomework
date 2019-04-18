@@ -10,7 +10,7 @@
 |ex04    |Finished|                               |
 |ex05    |Finished|First Review Finished          |
 |ex06    |Finished|                               |
-|ex07    |Writing |                               |
+|ex07    |Finished|                               |
 
 # Docs
 
