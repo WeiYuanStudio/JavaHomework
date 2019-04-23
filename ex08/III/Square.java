@@ -28,6 +28,6 @@ public class Square implements Shape {
 
     @Override
     public double getPerimeter() {
-        return 2 * side;
+        return 4 * side;
     }
 }

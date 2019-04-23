@@ -17,7 +17,6 @@ public class ShapeAPI<T extends Shape> {
     }
 
     public void printAllInfo(T shape) {
-//        System.out.println("Aria is " + shape.getAria() + "Perimeter is " + shape.getPerimeter());
         System.out.println(shape.getClass().getSimpleName());
         printPerimeter(shape);
         printAria(shape);
