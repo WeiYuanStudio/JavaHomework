@@ -12,7 +12,8 @@
 |ex06    |Finished|                               |
 |ex07    |Finished|                               |
 |ex08    |Finished|                               |
-|ex09    |Writing |                               |
+|ex09    |Finished|                               |
+|ex10    |Writing |                               |
 
 # Docs
 
