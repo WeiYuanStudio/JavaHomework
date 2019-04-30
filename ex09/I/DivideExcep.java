@@ -13,7 +13,7 @@ public class DivideExcep {
         try {
             divide();
         } catch (InputMismatchException e) {
-            System.err.println(e.getMessage());
+            System.err.println("Input Mistake, Please Input Double");
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
         }
