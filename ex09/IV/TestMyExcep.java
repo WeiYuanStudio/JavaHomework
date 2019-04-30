@@ -11,7 +11,7 @@ class TestMyExcep {
             try {
                 new MyNum(i);
             } catch (MyExcep e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         }
     }

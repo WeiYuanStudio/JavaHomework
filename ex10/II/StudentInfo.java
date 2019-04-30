@@ -1,7 +1,7 @@
 package ex10.II;
 
 /**
- * 单个学生的信息
+ * 单个学生的信息，该类用于储存学生信息
  * @author WeiYuan
  * @version 0.1
  * @since JDK 11.0.2
