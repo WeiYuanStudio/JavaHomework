@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @since JDK 11.0.2   gson 2.8.5
  */
 public class TestStudentDataBase {
+    static String dataBasePath;
     /**
      * 获取学生信息并构建成StudentInfo对象
      * @return 学生信息对象
@@ -32,7 +33,6 @@ public class TestStudentDataBase {
      * 写入学生信息方法，供main方法调用
      */
     private static void getStudentMenu() {
-        String dataBasePath = "/home/adam/playground/JLUZH"; //写入文件路径
         StudentDataBase jluzh = new StudentDataBase(dataBasePath, "WeiYuanStudio");
         Scanner scanner = new Scanner(System.in);
         do {
@@ -55,7 +55,6 @@ public class TestStudentDataBase {
      * 打印所有学生信息
      */
     private static void printStudentMenu() {
-        String dataBasePath = "/home/adam/playground/JLUZH"; //读取文件路径
         StudentDataBase jluzh = new StudentDataBase(dataBasePath, "WeiYuanStudio");
         try {
             jluzh.readFile();
@@ -73,8 +72,9 @@ public class TestStudentDataBase {
     }
 
     public static void main(String[] args) {
+        dataBasePath = args[0];
         while (true) {
-            System.out.println("Please Input Number To Choose Menu");
+            System.out.println("Please Input Number To Choose Menu, You Have Set File Path: " + dataBasePath);
             System.out.println("1. Write Data");
             System.out.println("2. Print Data");
             System.out.println("3. Exit");
