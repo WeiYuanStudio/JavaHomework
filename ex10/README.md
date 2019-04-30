@@ -75,7 +75,7 @@ Please Input Your Target File Path
 *******************
 ```
 
-为什么不使用记事本截图发上来呢，因为在学校实验室上机没有网络代理（你懂的网络原因）的环境下发现，GitHub仓库内图片全部都无法显示，尽管我是用的是微博图床作为图片来源，但是经过对响应网页的源码查看，发现应该是GitHub出于隐私保护原因，反代了README.md中的图片链接，避免浏览器直接加载图床链接造成隐私泄漏的可能性。
+为什么不使用记事本截图发上来呢，因为在学校实验室上机没有网络代理（你懂的网络原因）的环境下发现，GitHub仓库内图片全部都无法显示，尽管我是用的是微博图床作为图片来源，但是经过对响应网页的源码查看，发现应该是GitHub出于隐私保护原因，反代了README.md中的图片链接，避免浏览器直接加载图床链接造成隐私泄漏的可能性。但这也导致了大陆用户因网络原因直接无法查看图片。。。。
 
 ## II.课后习题第四题
 
@@ -409,7 +409,8 @@ public class TestStudentDataBase {
 ```
 
 编译时需要Gson类库的依赖，该类库下载到手是一个jar包，我将它放在lib内，现在进入JavaHomework目录。编译命令
-```java -cp ../lib/gson-2.8.5.jar:. ex10.II.TestStudentDataBase /disk2/playground/JLUZH
+```
+java -cp ../lib/gson-2.8.5.jar:. ex10.II.TestStudentDataBase /disk2/playground/JLUZH
 ```
  ClassPath参数`-cp ../lib/:.` 表示lib目录，要包含上一级目录中的lib和当前目录。由于使用了-cp参数，javac将不会将当前目录自动的加入cp中所以还要加上当前目录用句点表示，Win中用`;`，Linux中用`:`分隔两个cp
 
