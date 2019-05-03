@@ -1,6 +1,5 @@
 package ex10.II;
 
-import javax.swing.text.Style;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;

@@ -16,7 +16,7 @@ import com.google.gson.Gson;
  * @version 0.1
  * @since JDK 11.0.2
  */
-public class StudentDataBase {
+class StudentDataBase {
     private String dataBasePath; //文件储存路径
     private DataBaseJson dataBaseJson; //对象储存Json
     private String textFormJson; //序列化Json
@@ -81,7 +81,7 @@ public class StudentDataBase {
     /**
      * @return 返回序列化后的Json
      */
-    public DataBaseJson getDataBaseJson() {
+    DataBaseJson getDataBaseJson() {
         return dataBaseJson;
     }
 }
