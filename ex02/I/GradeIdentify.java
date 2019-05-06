@@ -1,3 +1,7 @@
+package ex02.I;
+
+import java.text.ParseException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -9,19 +13,41 @@ import java.util.Scanner;
  */
 
 public class GradeIdentify {
-    public static void main(){
+    private static void printGrade(double score) {
+        if(score > 100 || score < 0)
+            throw new IllegalArgumentException("超出分数范围");
+        System.out.print("分数为" + score + "分,");
+        switch ((int) (score / 10)) {
+            case 9:
+                System.out.println("成绩优秀！");
+                break;
+            case 8:
+                System.out.println("成绩良好！");
+                break;
+            case 7:
+                System.out.println("成绩中等！");
+                break;
+            case 6:
+                System.out.println("成绩及格！");
+                break;
+            default:
+                System.out.println("不及格");
+        }
+    }
+
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
-        double n = sc.nextDouble();
-        if (n >= 90) {
-            System.out.println("分数为" + n + "分，成绩优秀！");
-        }else if (n >= 80) {
-            System.out.println("分数为" + n + "分，成绩良好！");
-        }else if (n >= 70) {
-            System.out.println("分数为" + n + "分，成绩中等！");
-        }else if (n >= 60) {
-            System.out.println("分数为" + n + "分，成绩及格！");
-        }else {
-            System.out.println("分数为" + n + "分，成绩不及格！");
+        double score = 0;
+        try {
+            score = sc.nextDouble();
+        } catch (InputMismatchException e) {
+            System.err.println("请输入Double");
+            System.exit(-1);
+        }
+        try {
+            printGrade(score);
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
         }
     }
 }
