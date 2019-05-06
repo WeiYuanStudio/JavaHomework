@@ -58,13 +58,12 @@ class StudentDataBase {
         File file = new File(dataBasePath); //建立文件对象
         BufferedReader reader = new BufferedReader(new FileReader(file)); //建立reader
         textFormJson = reader.readLine(); // Read A Line
-        fomatJsonFromText();
     }
 
     /**
      * 序列化Json
      */
-    String getJsonText() {
+    private String getJsonText() {
         Gson gson = new Gson();
         return textFormJson = gson.toJson(dataBaseJson, DataBaseJson.class); //对Gson序列化为Json
     }
