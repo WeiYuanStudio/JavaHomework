@@ -11,49 +11,41 @@ import java.util.Scanner;
 public class AddressBook {
     private String name, addr, tel;
 
-    /**
-     * 该方法通过输入type（即信息类型）以返回对象的相应信息
-     *
-     * @param type
-     */
-    public void getter(char type) {
-        switch (type) {
-            case 'N':
-                System.out.println("姓名：" + name);
-                break;
-            case 'A':
-                System.out.println("地址:" + addr);
-                break;
-            case 'T':
-                System.out.println("电话:" + tel);
-                break;
-        }
+    public AddressBook(){}
+
+    public AddressBook(String name, String addr, String tel) {
+        this.name = name;
+        this.addr = addr;
+        this.tel = tel;
     }
 
-    /**
-     * 该方法通过输入type, info参数设定对象的相应信息。
-     *
-     * @param type
-     * @param info
-     */
-    public void setter(char type, String info) {
-        switch (type) {
-            case 'N':
-                name = info;
-                break;
-            case 'A':
-                addr = info;
-                break;
-            case 'T':
-                tel = info;
-                break;
-        }
+    public String getName() {
+        return name;
     }
 
-    public void
-    getAllInfo() {
-        getter('N');
-        getter('A');
-        getter('T');
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public void printAllInfo() {
+        System.out.println("姓名：" + getName());
+        System.out.println("地址：" + getAddr());
+        System.out.println("电话：" + getTel());
     }
 }

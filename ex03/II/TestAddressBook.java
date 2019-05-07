@@ -11,21 +11,35 @@ import java.util.Scanner;
  */
 
 public class TestAddressBook {
-    public static void main(String args[]) {
+    private static void inputName(AddressBook addressBook) {
         Scanner scan = new Scanner(System.in);
-        AddressBook zhangsan_addr = new AddressBook();
-        String info;
-
         System.out.println("请输入你的姓名");
-        info = scan.next();
-        zhangsan_addr.setter('N', info);
+        String tempName = scan.next();
+        addressBook.setName(tempName);
+    }
+
+    private static void inputAddr(AddressBook addressBook) {
+        Scanner scan = new Scanner(System.in);
         System.out.println("请输入你的地址");
-        info = scan.next();
-        zhangsan_addr.setter('A', info);
+        String tempAddr = scan.next();
+        addressBook.setAddr(tempAddr);
+    }
+
+    private static void inputTel(AddressBook addressBook) {
+        Scanner scan = new Scanner(System.in);
         System.out.println("请输入你的电话");
-        info = scan.next();
-        zhangsan_addr.setter('T', info);
-        zhangsan_addr.getAllInfo();
+        String tempTel = scan.next();
+        addressBook.setTel(tempTel);
+    }
+
+    public static void main(String args[]) {
+        AddressBook zhangSan = new AddressBook();
+
+        inputName(zhangSan);
+        inputAddr(zhangSan);
+        inputTel(zhangSan);
+
+        zhangSan.printAllInfo();
     }
 
 }

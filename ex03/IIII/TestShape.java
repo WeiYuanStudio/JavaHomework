@@ -13,7 +13,7 @@ public class TestShape {
     public static void main(String args[]) {
         Rect R1 = new Rect(100, 20);
         Circle C1 = new Circle(4);
-        System.out.println("矩形的面积为" + R1.getter('A') + "周长为" + R1.getter('P'));
-        System.out.println("圆的面积为" + C1.getter('A') + "周长为" + C1.getter('P'));
+        System.out.println("矩形的面积为" + R1.getArea() + "周长为" + R1.getPerimeter());
+        System.out.println("圆的面积为" + C1.getArea() + "周长为" + C1.getPerimeter());
     }
 }

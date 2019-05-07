@@ -9,21 +9,26 @@ package ex03.III;
  */
 
 public class Circle {
-
-    double radius, perimeter, area, pi = 3.14;
+    private final double PI = 3.14;
+    private double radius, perimeter, area;
 
     public Circle(double radius) {
         this.radius = radius;
     }
 
-    public double getter(char type) {
-        switch (type) {
-            case 'A':
-                return area = pi * radius * radius;
-            case 'P':
-                return perimeter = 2 * pi * radius;
-            default:
-                return -1; //异常
-        }
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public double getPerimeter() {
+        return perimeter = 2 * PI * radius;
+    }
+
+    public double getArea() {
+        return area = PI * radius * radius;
     }
 }

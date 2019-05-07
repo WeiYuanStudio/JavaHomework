@@ -10,7 +10,7 @@ package ex03.III;
 
 public class Rect {
 
-    double length, width, perimeter, area;//长，宽，周长，面积
+    private double length, width, perimeter, area;//长，宽，周长，面积
 
     /**
      * 构造方法，初始化内部变量
@@ -23,14 +23,27 @@ public class Rect {
         this.width = width;
     }
 
-    public double getter(char type) {
-        switch (type) {
-            case 'A':
-                return area = length * width;
-            case 'P':
-                return perimeter = 2 * (length + width);
-            default:
-                return -1;//返回异常
-        }
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public double getPerimeter() {
+        return perimeter = 2 * (length + width);
+    }
+
+    public double getArea() {
+        return area = length * width;
     }
 }
