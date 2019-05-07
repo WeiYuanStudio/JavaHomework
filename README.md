@@ -6,7 +6,7 @@
 |--------|--------|-------------------------------|
 |ex01    |Finished|                               |
 |ex02    |Finished|First Review Finished          |
-|ex03    |Finished|                               |
+|ex03    |Finished|First Review Finished          |
 |ex04    |Finished|                               |
 |ex05    |Finished|First Review Finished          |
 |ex06    |Finished|                               |
