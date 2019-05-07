@@ -5,7 +5,7 @@
 |Project | Status |Code Review Status             | 
 |--------|--------|-------------------------------|
 |ex01    |Finished|                               |
-|ex02    |Finished|                               |
+|ex02    |Finished|First Review Finished          |
 |ex03    |Finished|                               |
 |ex04    |Finished|                               |
 |ex05    |Finished|First Review Finished          |
