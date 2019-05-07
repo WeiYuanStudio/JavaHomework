@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @version 0.1
  * @since JDK 11.8.2 MacOS 10.11.6
  */
-public class Factorial_my {
+public class FactorialMy {
     public static void main() {
         System.out.println("请输入一个整数，将计算n！即n的阶乘");
         Scanner sc = new Scanner(System.in);

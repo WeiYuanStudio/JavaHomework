@@ -10,20 +10,13 @@ import java.util.Scanner;
 
 public class IntegerCompute {
 
-    public static void main(String args[]) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("请输入变量A");
-        int a = sc.nextInt();
-        System.out.println("请输入变量B");
-        int b = sc.nextInt();
-        System.out.println("请输入运算方式 + - * /");
-        char op = sc.next().charAt(0);
+    private static void Option(int a, int b, char op) {
         switch (op) {
             case '+':
                 System.out.println("A+B:"+ (a+b));
                 break;
             case '-':
-                System.out.println("A-b" + (a-b));
+                System.out.println("A-B" + (a-b));
                 break;
             case '*':
                 System.out.println("A*B:" + (a*b));
@@ -32,5 +25,16 @@ public class IntegerCompute {
                 System.out.println("A/B:" + (a/b));
                 break;
         }
+    }
+
+    public static void main(String args[]) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("请输入变量A");
+        int a = scanner.nextInt();
+        System.out.println("请输入变量B");
+        int b = scanner.nextInt();
+        System.out.println("请输入运算方式 + - * /");
+        char option = scanner.next().charAt(0);
+        Option(a, b, option);
     }
 }
