@@ -9,6 +9,7 @@ package ex10.I;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Scanner;
 
 /**
@@ -19,29 +20,36 @@ import java.util.Scanner;
 public class PrintTriangleToFile {
     /**
      * 打印三角形到文件
-     * @param fileOutputStream 文件输出目录
+     *
+     * @param out 输出流对象
      * @param size 三角形大小
      */
-    public static void printTriangle(FileOutputStream fileOutputStream, int size) throws IOException {
+    public static void printTriangle(OutputStream out, int size) throws IOException {
         for (int i = 1; i <= size; i++) {
             for (int j = 1; j <= size - i; j++) {
-                fileOutputStream.write(' '); //打印空格
+                out.write(' '); //打印空格
             }
             for (int j = 1; j <= ((i - 1) * 2 + 1); j++) {
-                fileOutputStream.write('*'); //打印点
+                out.write('*'); //打印点
             }
-            fileOutputStream.write('\n'); //换行
+            out.write('\n'); //换行
         }
-        fileOutputStream.close(); //关闭文件
+        out.close(); //关闭文件
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Please Input Your Target File Path");
-        Scanner sc = new Scanner(System.in);
-        String filePath = sc.next(); //读取目标目录路径
+        String filePath = scanner.next(); //读取目标目录路径
+
+        System.out.println("Please Input Triangle Size");
+        int size = scanner.nextInt();
+
         try {
             FileOutputStream outFile = new FileOutputStream(filePath);
-            printTriangle(outFile, 10);
+            printTriangle(outFile, size); //Print to File
+            printTriangle(System.out, size); //Print to Console
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -54,15 +62,29 @@ public class PrintTriangleToFile {
 ```
 [adam@mibookpro JavaHomework]$ java ex10.I.PrintTriangleToFile
 Please Input Your Target File Path
-/disk2/playground/JavaTriangle
+/disk2/playground/JavaFileIO
+Please Input Triangle Size
+10
+         *
+        ***
+       *****
+      *******
+     *********
+    ***********
+   *************
+  ***************
+ *****************
+*******************
 ```
 
-现在按照理想的运行情况，该文件已经成功的写入到我的笔记本第二块硬盘/disk2下的/playground/JavaTriangle目录下。（这里注意，本人主力为Linux环境，这里填写的是Linux目录）  
+看到命令行已经打印出了一个三角形
+
+现在按照理想的运行情况，该文件已经成功的写入到我的笔记本第二块硬盘/disk2/playground/JavaFileIO文件中下。（这里注意，本人主力为Linux环境，这里填写的是Linux目录）  
 
 那么现在用`cat`命令让系统将文件内容打印到命令行中
 
 ```bash
-[adam@mibookpro JavaHomework]$ cat /disk2/playground/JavaTriangle 
+[adam@mibookpro JavaHomework]$ cat /disk2/playground/JavaFileIO
          *
         ***
        *****
