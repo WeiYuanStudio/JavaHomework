@@ -430,9 +430,11 @@ public class TestStudentDataBase {
 ```
 
 编译时需要Gson类库的依赖，该类库下载到手是一个jar包，我将它放在lib内，现在进入JavaHomework目录。编译命令
+
 ```
 java -cp ../lib/gson-2.8.5.jar:. ex10.II.TestStudentDataBase /disk2/playground/JLUZH
 ```
+
  ClassPath参数`-cp ../lib/:.` 表示lib目录，要包含上一级目录中的lib和当前目录。由于使用了-cp参数，javac将不会将当前目录自动的加入cp中所以还要加上当前目录用句点表示，Win中用`;`，Linux中用`:`分隔两个cp
 
 相应的运行时也需要添加-cp参数，除非将整个程序包含依赖打包成jar包，否则运行到需要调用Gson的语句时就会直接报错
@@ -475,16 +477,16 @@ Please Input Number To Choose Menu, You Have Set File Path: /disk2/playground/JL
 ...
 ```
 
-现在来看目标文件,已经获得了标准的格式化后的json信息，在文件系统中，该文件是压缩后的json，仅有一行，网页显示已经被自动换行排版，仅供参考
+现在来看目标文件,已经获得了标准的格式化后的json信息，在文件系统中，该文件是压缩后的json，仅有一行，如下，网页可能被自动换行排版，仅供参考
 
 ```
 [adam@mibookpro JavaHomework]$ cat /disk2/playground/JLUZH 
 {"lastChangeTime":"2019年05月01日 01:45:32","author":"WeiYuanStudio","studentInfos":[{"studentNum":"04181010","studentName":"WeiYuan","studentSex":"Male","studentGrade":1,"studentGPA":80},{"studentNum":"0418XXXX","studentName":"HatsuneMiku","studentSex":"Female","studentGrade":1,"studentGPA":100},{"studentNum":"0418XXXX","studentName":"wowaka","studentSex":"Female","studentGrade":4,"studentGPA":100},{"studentNum":"0418YYYY","studentName":"deco*27","studentSex":"Female","studentGrade":4,"studentGPA":97}]}
 ```
 
-通过[在线格式化工具](https://www.json.cn)格式化缩进，方便阅读，如下
+通过[在线格式化工具](https://www.json.cn)格式化展开该保存文件的缩进，方便阅读，如下
 
-```
+```json
 {
     "lastChangeTime":"2019年05月01日 01:45:32",
     "author":"WeiYuanStudio",
@@ -521,7 +523,7 @@ Please Input Number To Choose Menu, You Have Set File Path: /disk2/playground/JL
 }
 ```
 
-重启程序读取信息测试，成功打印出文件中的数据
+重启程序，读取硬盘中文件信息测试，成功解析了json，并打印出文件中的数据
 
 ```
 [adam@mibookpro JavaHomework]$ java -cp ../lib/gson-2.8.5.jar:. ex10.II.TestStudentDataBase /disk2/playground/JLUZH
