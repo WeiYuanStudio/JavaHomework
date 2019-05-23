@@ -7,6 +7,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.logging.Logger;
 
+/**
+ * 计算器
+ * @author WeiYuan
+ * @version 0.1
+ * @since JDK 11.0.2
+ */
 public class Calculator extends JFrame implements ActionListener, KeyListener {
     private JTextField numATextField, numBTextField;
     private JLabel result;
