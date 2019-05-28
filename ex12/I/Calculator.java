@@ -1,4 +1,5 @@
 package ex12.I;
+
 import javax.swing.*; //https://docs.oracle.com/en/java/javase/12/docs/api/java.desktop/javax/swing/package-summary.html
 import java.awt.*; //https://docs.oracle.com/en/java/javase/12/docs/api/java.desktop/java/awt/event/package-summary.html
 import java.awt.event.ActionEvent;
@@ -9,11 +10,12 @@ import java.util.logging.Logger;
 
 /**
  * 计算器
+ *
  * @author WeiYuan
  * @version 0.1
  * @since JDK 11.0.2
  */
-public class Calculator extends JFrame implements ActionListener, KeyListener {
+public class Calculator extends JFrame {
     private JTextField numATextField, numBTextField;
     private JLabel result;
 
@@ -42,25 +44,15 @@ public class Calculator extends JFrame implements ActionListener, KeyListener {
         result = new JLabel();
         add(result); //Add result Label
 
-        additionButton.addActionListener(this); //Add Button "=" to ActionListener
+        additionButton.addActionListener(new ButtonListenner()); //Add Button "=" to ActionListener
 
         //Add HotKey listener when focus on these element
-        numATextField.addKeyListener(this);
-        numBTextField.addKeyListener(this);
-        additionButton.addKeyListener(this);
+        HotkeyListener hotkeyListener = new HotkeyListener();
+        numATextField.addKeyListener(hotkeyListener);
+        numBTextField.addKeyListener(hotkeyListener);
+        additionButton.addKeyListener(hotkeyListener);
 
         setVisible(true);
-    }
-
-    /**
-     * Listen button "=", and run AdditionCal()
-     *
-     * @param e
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        additionCal();
-        Logger.getGlobal().info("Action by button"); //Logging
     }
 
     private void additionCal() {
@@ -78,25 +70,36 @@ public class Calculator extends JFrame implements ActionListener, KeyListener {
     }
 
     /**
-     * Listen Enter Key type event, and run AdditionCal()
-     *
-     * @param e
+     * Listen button "=", and run AdditionCal()
      */
-    @Override
-    public void keyTyped(KeyEvent e) {
-        if (e.getKeyChar() == '\n') {
+    class ButtonListenner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
             additionCal();
-            Logger.getGlobal().info("Action by Enter Key"); //Logging
+            Logger.getGlobal().info("Action by button"); //Logging
         }
     }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
+    /**
+     * Listen Enter Key type event, and run AdditionCal()
+     */
+    class HotkeyListener implements KeyListener {
+        @Override
+        public void keyTyped(KeyEvent keyEvent) {
+            if (keyEvent.getKeyChar() == '\n') {
+                additionCal();
+                Logger.getGlobal().info("Action by Enter Key"); //Logging
+            }
+        }
 
-    }
+        @Override
+        public void keyPressed(KeyEvent keyEvent) {
 
-    @Override
-    public void keyReleased(KeyEvent e) {
+        }
 
+        @Override
+        public void keyReleased(KeyEvent keyEvent) {
+
+        }
     }
 }
